@@ -79,8 +79,8 @@ function Home() {
 
   return (
     <div>
-      <h1>NueralNotes</h1>
-      <h2>Nueral Notes takes your ideas and stores them in a way that is actually useful</h2>
+      <h1>NeuralNotes</h1>
+      <h2>Neural Notes takes your ideas and stores them in a way that is actually useful</h2>
       {/* <input type="text" value={userInput} onChange={handleInputChange} /> */}
       {isListening ? <span>🎙️</span> : <span>🛑🎙️</span> }
 
