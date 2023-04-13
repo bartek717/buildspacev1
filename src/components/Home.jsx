@@ -142,8 +142,8 @@ const Home = ({ session }) =>{
   return (
     <div>
       <button onClick={handleGoToProfile}>Profile</button>
-      <h1>NeuralNotes</h1>
-      <h2>Neural Notes takes your ideas and stores them in a way that is actually useful</h2>
+      <h1>Memoria</h1>
+      <h2>Memoria takes your ideas and stores them in a way that is actually useful</h2>
       {/* <input type="text" value={userInput} onChange={handleInputChange} /> */}
       {isListening ? <span>🎙️</span> : <span>🛑🎙️</span> }
 
