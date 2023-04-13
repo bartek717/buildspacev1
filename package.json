@@ -1,6 +1,7 @@
 {
   "name": "buildspace1",
   "version": "0.1.0",
+
   "private": true,
   "dependencies": {
     "@supabase/supabase-js": "^2.20.0",
