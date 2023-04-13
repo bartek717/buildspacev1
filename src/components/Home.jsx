@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
+import Account from './Account';
+import { useNavigate } from 'react-router-dom';
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const mic = new SpeechRecognition();
@@ -8,17 +9,25 @@ mic.continuous = true;
 mic.interimResults = true;
 mic.lang = 'en-US';
 
-function Home() {
+const Home = ({ session }) =>{
   const [isListening, setIsListening] = useState(false);
   const [note, setNote] = useState(null);
   const [savedNotes, setSavedNotes] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [gptResponse, setGptResponse] = useState('');
+  const navigate = useNavigate();
+  console.log(session);
 
 
   useEffect(() => {
     handleListen();
   }, [isListening]);
+
+  // render the account page
+  const handleGoToProfile = () => {
+    console.log(session);
+    navigate('/account', {state:{session: session }});
+  }
 
   const handleButtonClick = () => {
     processMessageToChatGPT("This is an idea I have: " + note + ". Summarize the key points of this app (only write the points, no intro to the points)", 1000).then((response) => {
@@ -79,6 +88,7 @@ function Home() {
 
   return (
     <div>
+      <button onClick={handleGoToProfile}>Profile</button>
       <h1>NeuralNotes</h1>
       <h2>Neural Notes takes your ideas and stores them in a way that is actually useful</h2>
       {/* <input type="text" value={userInput} onChange={handleInputChange} /> */}
